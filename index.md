@@ -2,14 +2,14 @@
 layout: default
 ---
 
-### Contents
+### Contenu
 
 - [Déclarer un doctype](#doctype)
-- [Box model math](#box-model-math)
-- [Rem units and Mobile Safari](#rems-mobile-safari)
-- [Floats first](#floats-first)
-- [Floats and clearing](#floats-clearing)
-- [Floats and computed height](#floats-computed-height)
+- [Mathématique des box model](#box-model-math)
+- [Unités en Rem Sur Safari mobile](#rems-mobile-safari)
+- [Éléments flottants en premier](#floats-first)
+- [Nettoyage des éléments flottants](#floats-clearing)
+- [Éléments flottants et hauteur calculée](#floats-computed-height)
 - [Floated are block level](#floats-block-level)
 - [Vertical margins often collapse](#vertical-margins-collapse)
 - [Styling table rows](#styling-table-rows)
@@ -30,12 +30,12 @@ Toujours inclure un doctype. Je recommande simplement le doctype HTML5 :
 <!DOCTYPE html>
 ```
 
-[Ne pas mettre de doctype peut provoquer des problèmes](http://quirks.spec.whatwg.org) avec des tables malformés, les inputs et plus encore vu que la page sera affichée en 'quirks mode'.
+[Ne pas mettre de doctype peut provoquer des problèmes](http://quirks.spec.whatwg.org) avec des tableaux malformés, des inputs et plus encore vu que la page sera affichée en 'quirks mode'.
 
 
 <a name="box-model-math"></a>
 ### Mathématiques des box model
-Les éléments qui ont une `width` (largeur) spécifiée deviennent *plus large* quand ils ont un `padding` et/ou une `border-width`. Pour éviter ces problèmes, utilisez le désormais commun [`box-sizing: border-box;` reset](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
+Les éléments qui ont une `width` (largeur) spécifiée deviennent *plus large* quand ils ont un `padding` et/ou une `border-width`. Pour éviter ces problèmes, utilisez le reset désormais commun [`box-sizing: border-box;`](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
 
 
 <a name="rems-mobile-safari"></a>
@@ -68,8 +68,8 @@ html {
 
 
 <a name="floats-first"></a>
-### Floats first
-Floated elements should always come first in the document order. Floated elements require something to wrap around, otherwise they can cause a step down effect, instead appearing below the content.
+### Éléments flottants en premier
+Les éléments flottants devraient toujours être placés en premier dans l'ordre d'un document. Les éléments flottants exigent quelque chose auquel s'envelopper sinon ils peuvent "descendre" au lieu d'apparaitre sous le contenu.
 
 ```html
 <div class="parent">
@@ -82,10 +82,10 @@ Floated elements should always come first in the document order. Floated element
 
 
 <a name="floats-clearing"></a>
-### Floats and clearing
-If you float it, you *probably* need to clear it. Any content that follows an element with a `float` will wrap around that element until cleared. To clear floats, use one of the following techniques.
+### Nettoyage des éléments flottants
+Si vous le faite flotter, vous avez *probablement* besoin de le "nettoyer". Tout contenu qui suit un élément avec un `float` va s'envelopper autour de cet élément jusqu'à ce qu'il soit "nettoyé". Pour cela, utilisez l'une des techniques suivantes.
 
-Use [the micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) to clear your floats with a separate class.
+Utilisez le [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) pour effacer vos éléments flottants avec une classe distincte.
 
 ```css
 .clearfix:before,
@@ -98,7 +98,7 @@ Use [the micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) to cl
 }
 ```
 
-Alternatively, specify `overflow`, with `auto` or `hidden`, on the parent.
+Vous pouvez également spécifier un `overflow`, avec `auto` ou `hidden` sur l'élément parent.
 
 ```css
 .parent {
@@ -109,28 +109,28 @@ Alternatively, specify `overflow`, with `auto` or `hidden`, on the parent.
 }
 ```
 
-Be aware that `overflow` can cause other unintended side effects, typically around positioned elements within the parent.
+Soyez conscient que l'`overflow` peut causer d'autres effets secondaires indésirables, généralement autour des éléments positionnés au sein de l'élément parent.
 
-**Pro-Tip!** *Keep your future self and your coworkers happy by including a comment like `/* clearfix */` when clearing floats as the property can be used for other reasons.*
+**Pro-Tip!** *Rendez vos collègues heureux  en ajoutant un commentaire comme `/* clearfix */` quand vous nettoyer vos éléments flottants vu que la propriété peut être utilisée pour d'autres raisons.*
 
 
 <a name="floats-computed-height"></a>
-### Floats and computed height
-A parent element that has only floated content will have a computed `height: 0;`. Add a clearfix to the parent to force browsers to compute a height.
+### Éléments flottants et hauteur calculée
+Un élément parent qui a seulement des éléments flottants aura une hauteur calculée : `height: 0;`. Ajoutez un clearfix au parent pour forcer le navigateur à calculer une hauteur.
 
 
 <a name="floats-block-level"></a>
-### Floated elements are block level
-Elements with a `float` will automatically become `display: block;`. Do not set both as there is no need and the `float` will override your `display`.
+### Éléments flottants et niveau de block
+Les éléments avec un `float` vont automatiquement être en `display: block;`. Ne spécifiez pas ces deux propriétés tant que ce n'est pas nécessaire. Le `float` va outrepasser votre `display`.
 
 ```css
 .element {
   float: left;
-  display: block; /* Not necessary */
+  display: block; /* Pas nécessaire */
 }
 ```
 
-**Fun fact:** *Years ago, we had to set `display: inline;` for most floats to work properly in IE6 to avoid the [double margin bug](http://www.positioniseverything.net/explorer/doubled-margin.html). However, those days have long passed.*
+**Fun fact:** *Ils y a quelques années, nous devions spécifier un `display: inline;` sur la plupart des éléments flottants pour fonctionner proprement sur IE6 et éviter le [bug des double margin](http://www.positioniseverything.net/explorer/doubled-margin.html). Toutefois, ces jours sont passés depuis longtemps.*
 
 
 <a name="vertical-margins-collapse"></a>
