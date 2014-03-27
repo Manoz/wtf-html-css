@@ -4,7 +4,7 @@ layout: default
 
 ### Contents
 
-- [Declare a doctype](#doctype)
+- [Déclarer un doctype](#doctype)
 - [Box model math](#box-model-math)
 - [Rem units and Mobile Safari](#rems-mobile-safari)
 - [Floats first](#floats-first)
@@ -23,40 +23,40 @@ layout: default
 
 
 <a name="doctype"></a>
-### Declare a doctype
-Always include a doctype. I recommend the simple HTML5 doctype:
+### Déclarer un doctype
+Toujours inclure un doctype. Je recommande simplement le doctype HTML5 :
 
 ```html
 <!DOCTYPE html>
 ```
 
-[Skipping the doctype can cause issues](http://quirks.spec.whatwg.org) with malformed tables, inputs, and more as the page will be rendered in quirks mode.
+[Ne pas mettre de doctype peut provoquer des problèmes](http://quirks.spec.whatwg.org) avec des tables malformés, les inputs et plus encore vu que la page sera affichée en 'quirks mode'.
 
 
 <a name="box-model-math"></a>
-### Box model math
-Elements that have a set `width` become *wider* when they have `padding` and/or `border-width`. To avoid these problems, make use of the now common [`box-sizing: border-box;` reset](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
+### Mathématiques des box model
+Les éléments qui ont une `width` (largeur) spécifiée deviennent *plus large* quand ils ont un `padding` et/ou une `border-width`. Pour éviter ces problèmes, utilisez le désormais commun [`box-sizing: border-box;` reset](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
 
 
 <a name="rems-mobile-safari"></a>
-### Rem units and Mobile Safari
-While Mobile Safari supports the use of `rem`s in all property values, it seems to shit the bed when `rem`s are used in dimensional media queries and infinitely flashes the page's text in different sizes.
+### Unités en Rem Sur Safari mobile
+Alors que Safari Mobile prend en charge l'utilisation des `rem`s sur toutes les valeurs des propriétés, il semblerait que ça plante quand des `rem`s sont utilisés dans les media queries et que ça fait clignoter à l'infinie les textes de différentes tailles des pages.
 
-For now, use `em`s in place of `rem`s.
+Pour le moment, utilisez des tailles en `em`s plutôt qu'en `rem`.
 
 ```css
 html {
   font-size: 16px;
 }
 
-/* Causes flashing bug in Mobile Safari */
+/* Bugs de textes clignotants sur Safari Mobile */
 @media (min-width: 40rem) {
   html {
     font-size: 20px;
   }
 }
 
-/* Works great in Mobile Safari */
+/* Fonctionne bien sur Safari Mobile */
 @media (min-width: 40em) {
   html {
     font-size: 20px;
@@ -64,7 +64,7 @@ html {
 }
 ```
 
-**Help!** *If you have a link to an Apple or WebKit bug report for this, I'd love to include it. I'm unsure where to report this as it only applies to Mobile, and not Desktop, Safari.*
+**Help!** *Si vous avez un lien vers un rapport de bug d'Apple ou WebKit pour ça, J'aimerais l'inclure. Je ne suis pas sûr d'où signaler ça vu que cela ne s'applique que sur la version mobile de Safari.*
 
 
 <a name="floats-first"></a>
