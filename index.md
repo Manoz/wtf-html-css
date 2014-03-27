@@ -40,9 +40,9 @@ Les éléments qui ont une `width` (largeur) spécifiée deviennent *plus large*
 
 <a name="rems-mobile-safari"></a>
 ### Unités en Rem Sur Safari mobile
-Alors que Safari Mobile prend en charge l'utilisation des `rem`s sur toutes les valeurs des propriétés, il semblerait que ça plante quand des `rem`s sont utilisés dans les media queries et que ça fait clignoter à l'infinie les textes de différentes tailles des pages.
+Alors que Safari Mobile prend en charge l'utilisation des `rem` sur toutes les valeurs des propriétés, il semblerait que ça plante quand des `rem` sont utilisés dans les media queries et que ça fasse clignoter à l'infini les textes de différentes tailles des pages.
 
-Pour le moment, utilisez des tailles en `em`s plutôt qu'en `rem`.
+Pour le moment, utilisez des tailles en `em` plutôt qu'en `rem`.
 
 ```css
 html {
